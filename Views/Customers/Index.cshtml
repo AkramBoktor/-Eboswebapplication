@@ -1,0 +1,96 @@
+﻿@using EBOSWebApplication.Models.Pagination;
+@model CustomerPaging;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="Index" asp-controller="Customers" method="post">
+
+    <table class="table" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Customer Surname
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Postal Code
+                </th>
+                <th>
+                    Country
+                </th>
+                <th>
+                    Date of Birth
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.customersViewModel)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customersurname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateofBirth)
+                    </td>
+                    <td>
+                        <partial name="_RUDButtonsPartial" model="@item.CustomerNo">
+                            <a asp-controller="Calls" asp-action="Edit" asp-route-id="@item.CallsId" class="btn btn-outline-secondary btn-sm">Update Calls</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table-bordered" cellpadding="2" cellspacing="3">
+        <tr>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <td>
+                    @if (i != Model.CurrentPageIndex)
+                    {
+                        <a href="javascript:PagerClick(@i);">@i</a>
+                    }
+                    else
+                    {
+                        <span>@i</span>
+                    }
+                </td>
+            }
+        </tr>
+    </table>
+
+    <input type="hidden" id="hfCurrentPageIndex" name="currentPageIndex" />
+</form>
+@section Scripts {
+    <script type="text/javascript">
+        function PagerClick(index) {
+            document.getElementById("hfCurrentPageIndex").value = index;
+            document.forms[0].submit();
+        }
+    </script>
+}

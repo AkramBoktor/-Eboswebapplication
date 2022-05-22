@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/22/2022 11:00:19" ReportInfo.Modified="05/22/2022 11:10:11" ReportInfo.CreatorVersion="1.0.0.0">
+  <Styles Name="Gray">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Fill.Color="Gainsboro" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Fill.Color="Gainsboro" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqQqF+Cdb6F5Un7dgTD2i1NtEl3kktE5hRO4UnonbkCr2LHO6GeUoLfKf0DfOxXqMb/xZYD9FyqeK/zlsrdzi7DMufxdY3sbl4JSBTvybwqtdk7iNYPAWHI+Zy4r/DZ5vF95bt3rxhb2p8Zt6jgBJ9BNTjOfXkdVhvdqSxbHsPXETzJDuP6Z/i6tBhx9FSnvffuXlDS0NWF4tDH/mT7RU3/w==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select [CustomerName] as First_Name,[Customersurname] as Second_Name,[Address],[Country] ,&#13;&#10;[dbo].[Calls].Description as Description_call , [dbo].[Calls].Subject as Subject_Call&#13;&#10;from [dbo].[Customers]&#13;&#10;join [dbo].[Calls]&#13;&#10;on [dbo].[Calls].CustomerNo = [dbo].[Customers].CustomerNo&#13;&#10;&#13;&#10;Order by [dbo].[Customers].CustomerNo">
+        <Column Name="First_Name" DataType="System.String"/>
+        <Column Name="Second_Name" DataType="System.String"/>
+        <Column Name="Address" DataType="System.String"/>
+        <Column Name="Country" DataType="System.String"/>
+        <Column Name="Description_call" DataType="System.String"/>
+        <Column Name="Subject_Call" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Dock="Fill" Text="Customers Calls" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold" Style="Title"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="40.47" Width="718.2" Height="122.85" DataSource="Table">
+      <TextObject Name="Text2" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="First_Name" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text3" Left="122.85" Width="595.35" Height="18.9" Text="[Table.First_Name]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text4" Top="18.9" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="Second_Name" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text5" Left="122.85" Top="18.9" Width="595.35" Height="18.9" Text="[Table.Second_Name]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text6" Top="37.8" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="Address" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text7" Left="122.85" Top="37.8" Width="595.35" Height="18.9" Text="[Table.Address]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text8" Top="56.7" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="Country" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text9" Left="122.85" Top="56.7" Width="595.35" Height="18.9" Text="[Table.Country]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text10" Top="75.6" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="Description_call" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text11" Left="122.85" Top="75.6" Width="595.35" Height="18.9" Text="[Table.Description_call]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text12" Top="94.5" Width="122.85" Height="18.9" Fill.Color="Gainsboro" Text="Subject_Call" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text13" Left="122.85" Top="94.5" Width="595.35" Height="18.9" Text="[Table.Subject_Call]" Font="Arial, 10pt" Style="Data"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="165.98" Width="718.2" Height="18.9">
+      <TextObject Name="Text14" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="Gainsboro" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
