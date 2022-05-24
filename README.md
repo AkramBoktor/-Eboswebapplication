@@ -3,7 +3,7 @@
 
 # Technologies
 # Back End : 
-.Net Core , Entity Framework , Code First , MVC , Fast Report
+.Net Core , Entity Framework , Code First , MVC , Fast Report , LINQ
 # Database : 
 Sql Server 2019 
 # Front End :
