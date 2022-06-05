@@ -20,7 +20,7 @@ namespace EBOSWebApplication.Models
         public int CustomerNo { get; set; }
 
         [Required]
-        [MaxLength(250, ErrorMessage = "Please Enter Valid Customer Name"), MinLength(5)]
+        [MaxLength(250, ErrorMessage = "Please Enter Valid Doctor Name"), MinLength(5)]
         [Display(Name = "Customer Name")]
 
         public string CustomerName { get; set; }

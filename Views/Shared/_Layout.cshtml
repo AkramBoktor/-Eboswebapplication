@@ -27,24 +27,19 @@
                         <!--If it's login or not -->
                         @if (User.Identity.IsAuthenticated)
                         {
-                            //Role Employee
-                              if (User.IsInRole("Employee"))
-                               {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Calls" asp-action="Index">Calls</a>
-                                    </li>
-                                }
-                            //Role Manager
-                                if (User.IsInRole("Manager"))
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
-                                    </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Customers" asp-action="Report">Report Customers</a>
-                                    </li>
-                                }
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="RadiologyDoctors" asp-action="Index">Radiology Doctors</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Doctors</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">Patients</a>
+                            </li>
+
                         }
                     </ul>
                     <partial name="_LoginPartial" />
@@ -58,11 +53,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - EBOS Web Application - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

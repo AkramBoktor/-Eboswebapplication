@@ -67,8 +67,7 @@ namespace EBOSWebApplication.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    var defaultrole = _roleManager.FindByIdAsync(Input.role).Result;
-                    await CheckRoleCreateAsync(defaultrole, user);
+              
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -87,7 +86,7 @@ namespace EBOSWebApplication.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return RedirectToAction("Index","Customers");
+                        return RedirectToAction("Index","Patients");
                     }
                 }
                 foreach (var error in result.Errors)

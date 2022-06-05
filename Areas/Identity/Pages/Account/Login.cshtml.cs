@@ -74,7 +74,7 @@ namespace EBOSWebApplication.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return RedirectToAction("Index","Calls");
+                    return RedirectToAction("Index","Doctors");
                 }
                 if (result.RequiresTwoFactor)
                 {
